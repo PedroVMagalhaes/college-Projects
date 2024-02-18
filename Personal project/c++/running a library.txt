@@ -1,0 +1,1 @@
+g++ -o Ledger ex.cc -I "libxl\\include_cpp" -L "libxl\\lib" -llibxl
