@@ -1,0 +1,29 @@
+<doctype html>
+<title>List accounts - Flask</title>
+<body style="padding:20px">
+  {% if cursor %}
+    <table border="2px">
+      <thead>
+      </thead>
+      <tbody>      
+        <h1>Base de Dados</h1>
+        <table id="menu">
+            <thead>
+            <tr>
+                <th>Menu Operacoes</th>
+            </tr>
+            </thead>
+            <tr><td><a href="categoria">Categoria</a></td></tr>
+            <tr><td><a href="categoriasimples">Categoria Simples</a></td></tr>
+            <tr><td><a href="criacategoria">Criar Categoria</a></td></tr>
+            <tr><td><a href="criacategoriasimples">Cria Categoria Simples</a></td></tr>
+            <tr><td><a href="removecategoria">Remover Categoria</a></td></tr>
+            <tr><td><a href="removecategoriasimples">Remover Categoria Simples</a></td></tr>
+        </table>
+      </tbody>
+    </table>
+  {% else %}
+    <p> Error: failed to retreive data from database!</p>
+  {% endif %}
+</body>
+</doctype>
