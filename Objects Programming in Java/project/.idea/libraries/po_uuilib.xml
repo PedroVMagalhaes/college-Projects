@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="po-uuilib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/po-uuilib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/po-uuilib.jar!/" />
+    </SOURCES>
+  </library>
+</component>

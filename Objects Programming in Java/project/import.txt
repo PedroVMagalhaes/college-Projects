@@ -1,0 +1,6 @@
+CLIENT|R2|Jorge Figueiredo|Lisboa, Portugal
+CLIENT|E4|Filomena Figueiredo|Lisboa, Portugal
+CLIENT|ER|Abdul Figueiredo|Casablanca, Morocco
+CLIENT|O9|Hellen Figueiredo|San Francisco, CA, USA
+CLIENT|H2SO4|John Figueiredo|Wellington, New Zealand
+CLIENT|H2O|Rohit Figueiredo|New Delhi, India
