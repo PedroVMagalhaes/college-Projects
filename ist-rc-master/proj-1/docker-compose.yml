@@ -1,0 +1,6 @@
+version: "3"
+services:
+  gcc:
+    image: gcc:latest
+    volumes:
+      - "./:/home/ist-rc"

@@ -1,0 +1,38 @@
+<script src="js/lib/require.js"></script>
+
+<style>
+    .decision {
+        width: 35pt;
+        height: 35pt;
+        border-color: black !important;
+    }
+</style>
+
+<div class="d-flex flex-column align-items-center">
+
+    <div class="d-flex flex-row justify-content-around header">
+        <img class="p-1" src="img/alarm-ring.svg" height="35pt" width="35pt">
+    </div>
+
+    <div class="d-flex flex-row justify-content-around p-2 mt-1">
+        <img class="p-1 header-img border rounded decision" src="img/food-paddle.png" id="goto">
+        <img class="p-1 header-img ml-2 border rounded decision" src="img/snooze.png" id="snooze">
+    </div>
+</div>
+
+<script>
+    require(['jquery', 'app/pageManager'], ($, pm) => {
+        $("#goto").click(() => {
+            pm.close_dialog();
+            pm.change_page("map.html")
+
+            $("#back-btn").unbind().click(() => {
+                if (!pm.locked())
+                    pm.back();
+            });
+        });
+        $("#snooze").click(() => {
+            pm.close_dialog();
+        });
+    });
+</script>

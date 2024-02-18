@@ -1,0 +1,31 @@
+<script src="js/lib/require.js"></script>
+
+<div class="d-flex flex-column panel">
+    <div class="d-flex justify-content-around flex-row">
+        <span class="font-weight-bold">Confirm Purchase</span>
+    </div>
+    <span class="font-weight-bold"> </span>
+
+    <div class="d-flex justify-content-around flew-row">
+        <div class="d-flex flex-column align-items-center p-1" id="NO">
+            <img src="img/close.png" class="full">
+        </div>
+        <div class="d-flex flex-column align-items-center p-1" id="YES">
+            <img src="img/check.png" class="full">
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['app/pageManager', 'app/wc', 'app/globals'], (pm, wc, g) => {
+
+        $("#NO").click(() => {
+            pm.close_dialog();
+        });
+
+        $("#YES").click(() => {
+            g.confirm_fn();
+        });
+    });
+</script>
+

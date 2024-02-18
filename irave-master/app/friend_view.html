@@ -1,0 +1,28 @@
+<script src="js/lib/require.js"></script>
+
+<div class="d-flex align-items-center flex-column">
+    <div class="mt-2">
+        <img class="rounded-circle" id="avatar" src="img/avatar1.jpg" width="50" height="50">
+    </div>
+
+    <div class="p-0 d-flex justify-content-center">
+        <span class="mt-2 small" id="name"></span>
+        <span class="fa fa-map-marker-alt p-2" id="localize"></span>
+    </div>
+</div>
+
+
+<script>
+    require(['jquery', 'app/friends', 'app/pageManager', 'app/finder'], function ($, friends, pm, f) {
+        $(document).ready(function () {
+            let name = friends.friend_to_show;
+            $("#name").html(name);
+            $("#avatar").attr("src", friends.pictures[name]);
+            $("#localize").click(() => {
+                f.tgt.x = 5;
+                f.tgt.y = 5;
+                pm.change_page("map.html")
+            })
+        });
+    });
+</script>

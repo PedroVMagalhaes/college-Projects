@@ -1,0 +1,59 @@
+<script src="js/lib/require.js"></script>
+
+<style>
+    #time{
+        font-size: 0.3in;
+    }
+
+    #date{
+        top: 0.63in;
+        width: 1.06in;
+        height: 0.3in;
+        font-size: 0.15in;
+    }
+
+</style>
+
+
+    <div class="d-flex flex-column justify-content-center mt-2">
+        <div class="p-0 text-center" id="time"></div>
+        <div class="p-0 text-center" id="date"></div>
+        <div class="p-0 text-center" style="margin-top: -5pt">
+            <i class="fa" id="lockinfo"></i>
+        </div>
+
+    </div>
+
+
+<script>
+    require(['jquery', 'datefmt', 'app/pageManager'], function ($, _, pm) {
+
+        $(document).ready(function() {
+
+            setTime();
+
+            function setTime() {
+                let now = new Date();
+
+                let fmt_hi = "HH:MM"; // 20:20
+                let fmt_lo = "ddd, dS mmm"; // Sat, 14 Apr
+
+                $("#time").html(now.format(fmt_hi));
+                $("#date").html(now.format(fmt_lo));
+            }
+
+            if (pm.locked()) {
+                 $("#lockinfo").addClass("fa-lock").removeClass("fa-lock-open");
+            } else {
+                 $("#lockinfo").removeClass("fa-lock").addClass("fa-lock-open");
+            }
+
+            pm.callbacks.lock = () => { $("#lockinfo").addClass("fa-lock").removeClass("fa-lock-open"); };
+            pm.callbacks.unlock = () => { $("#lockinfo").removeClass("fa-lock").addClass("fa-lock-open"); };
+
+            setInterval(setTime, 1000);
+        });
+
+    });
+</script>
+

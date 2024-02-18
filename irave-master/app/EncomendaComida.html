@@ -1,0 +1,1161 @@
+
+<style>
+
+    .scrollable{
+        width: 100%;
+        height: 0.950in;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-right: 0.1in;
+        box-sizing: content-box;
+    }
+
+    .scrollable_hmax{
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-right: 0.1in;
+        box-sizing: content-box;
+    }
+    /*info messages*/
+    #info_msg{
+        position: absolute;
+        opacity: 1;
+        transition: opacity 0.6s; /* 600ms to fade out */
+        background-color: RoyalBlue;
+        color:white;
+        font-size: 0.10in;
+        width:100%;
+        height:0.3in;
+        z-index: 10;
+        display: none;
+
+    }
+    /* The close button */
+    .closebtn {
+        position: absolute;
+        margin-left: 90%;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 0.13in;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        color: black;
+    }
+    /***********************/
+    #back{
+        width:0.4in;
+        height: 0.4in;
+        background: lightblue;
+    }
+
+
+    /*#shopping_cart_bar{
+
+    }*/
+
+    #food_bill_bar{
+        position:relative;
+        width:100%;;
+        height:0.28in;
+        background: lightgray;
+        z-index: 1;
+    }
+
+    #food_bill_number{
+        position:absolute;
+        top:0.03in;
+        left:0.23in;
+        width:0.56in;
+        font-size: 0.15in;
+        color:FireBrick;
+        text-align: center;
+    }
+    #food_bill_shopping_cart{
+        position:absolute;
+        top:0.02in;
+        left:0.02in;
+        width:0.2in;
+        height:0.2in;
+    }
+
+    .clickable_item{
+        position:relative;
+        width:110%;
+        height:0.3in;
+        line-height: 0.27in;
+        border-style: solid;
+        border: 1px solid black;
+        vertical-align: middle;
+    }
+
+    /*------------------------------------------------
+                        FOOD OPTION
+    ---------------------------------------------------*/
+    .food_option{
+        position:relative;
+        width:110%;
+        height:0.4in;
+        border-style: solid;
+        border: 1px solid black;
+    }
+    .not_inicial_screen{
+        display: none;
+    }
+
+    .food_option_name{
+        position: absolute;
+        width:01in;
+        top:0.03in;
+        left:0.3in;
+        font-size: 0.15in;
+    }
+    .food_option_price{
+        position: absolute;
+        top:0.2in;
+        left:0.3in;
+        width: 0.45in;
+        height: 0.2in;
+        font-size: 0.15in;
+    }
+    .food_option_time{
+        position:absolute;
+        top:0.2in;
+        left:0.8in;
+        width: 0.45in;
+        height: 0.2in;
+        font-size: 0.15in;
+        color:blue;
+    }
+    /*------------------------------------------------
+                        FOOD BUY
+    ---------------------------------------------------*/
+
+    #food_buy_img{
+        position: absolute;
+        top:0.25in;
+        left:0.4in;
+        transform: translate(-50%, 0);
+        height: 0.5in;
+    }
+
+    #food_buy_price{
+        position: absolute;
+        top:.85in;
+        left:0in;
+        width:0.4in;
+        height: 0.2in;
+        font-size: 0.13in;
+        text-align: left;
+    }
+    #food_buy_time{
+        position: absolute;
+        top:.85in;
+        left:0.38in;
+        width:0.4in;
+        height: 0.2in;
+        font-size: 0.13in;
+        color:blue;
+        text-align: right;
+    }
+    #food_buy_name{
+        position: absolute;
+        top:0.7in;
+        width: 0.8in;
+        height:0.3in;
+        font-size: 0.15in;
+        line-height: 0.15in;
+        text-align: center;
+        overflow:hidden;
+    }
+
+    #food_buy_add_quantity{
+        position: absolute;
+        top:0.05in;
+        left:0.85in;
+        width: 0.2in;
+        height: 0.2in;
+        z-index: 4;
+    }
+    #food_buy_display_quantity{
+        position: absolute;
+        top:0.3in;
+        left:0.85in;
+        width: 0.2in;
+        height: 0.2in;
+        text-align: center;
+        color: #2E56DA;
+        line-height: 0.19in;
+        z-index: 4;
+    }
+    #food_buy_subtract_quantity{
+        position: absolute;
+        top:0.55in;
+        left:0.85in;
+        width: 0.2in;
+        height: 0.2in;
+        z-index: 4;
+    }
+    #gray_background{
+        position: absolute;
+        top:0;
+        left:0.8in;
+        width:0.6in;
+        height: 100%;
+        background: #b3b3b3;
+        z-index: 3;
+    }
+
+    #okay{
+        position: absolute;
+        top: 0.75in;
+        left:0.8in;
+        width: 0.25in;
+        height: 0.3in;
+        background: green;
+        text-align: center;
+        z-index: 4;
+    }
+
+    /*------------------------------------------------
+                        FOOD PURCHASE
+    ---------------------------------------------------*/
+    #food_purchase_total{
+        position:absolute;
+        top:0.35in;
+        width:100%;
+        font-size: 0.17in;
+        text-align: center;
+        color:FireBrick;
+    }
+    #food_purchase_time{
+        position:absolute;
+        top:0.55in;
+        left:0.28in;
+        width:0.56in;
+        font-size: 0.16in;
+        color:blue;
+        text-align: center;
+    }
+    #food_purchase_view_bill_button{
+        position:absolute;
+        top:0.1in;
+        left:0.09in;
+        width:0.9in;
+        font-size: 0.17in;
+        border: 1px solid black;
+        text-align: center;
+        background-color:RoyalBlue ;
+    }
+    #food_purchase_cancel_button{
+        position:absolute;
+        top:0.8in;
+        left:0.03in;
+        width:0.50in;
+        font-size: 0.15in;
+        border: 1px solid black;
+        text-align: center;
+        background-color: green;
+    }
+    #food_purchase_order_button{
+        position:absolute;
+        top:0.8in;
+        left:0.55in;
+        width:0.50in;
+        font-size: 0.15in;
+        border: 1px solid black;
+        text-align: center;
+        background-color: FireBrick;
+    }
+
+    .food_bill_cell{
+        position:relative;
+        height:0.43in;
+        width:110%;
+        border: 1px solid black;
+    }
+    .food_bill_cell_name{
+        position: absolute;
+        width:0.8in;
+        top:0.03in;
+        font-size: 0.15in;
+    }
+    .food_bill_cell_quant{
+        position: absolute;
+        top:0.03in;
+        left:0.8in;
+        width:0.25in;
+        font-size: 0.165in;
+        text-align: right;
+    }
+    .food_bill_cell_time{
+        position:absolute;
+        top:0.23in;
+        font-size: 0.15in;
+        color:blue;
+    }
+    .food_bill_cell_total_price{
+        position:absolute;
+        top:0.23in;
+        left:0.53in;
+        width:0.50in;
+        font-size: 0.15in;
+        color:red;
+        text-align: right;
+    }
+
+    .food_bill_cell_price{
+        position:absolute;
+        top:0.23in;
+        left:0.53in;
+        width:0.50in;
+        font-size: 0.15in;
+        text-align: right;
+    }
+    .half_screen_button{
+        position:relative;
+        height:0.52in;
+        width:110%;
+    }
+    #food_first_screen_view_orders_button{
+        background-color: RoyalBlue ;
+    }
+    #food_first_screen_order_button{
+        background-color: green;
+    }
+    .half_screen_button_text{
+        position: absolute;
+        left:0;
+        top:0.2in;
+        width:90%;
+        font-size: 0.17in;
+        text-align: center;
+    }
+    .food_view_orders_order{
+        position:relative;
+        width:110%;
+        height:0.6in;
+        background-color: green;
+        border: 1px solid black;
+    }
+
+    .food_view_orders_order_view_bill_button{
+        position:absolute;
+        top:0.01in;
+        left:0.05in;
+        width:0.58in;
+        height:0.21in;
+        font-size: 0.13in;
+        background-color: RoyalBlue;
+        line-height:0.21in;
+        text-align: center;
+        border: 1px solid black;
+    }
+    .food_view_orders_order_direction_button{
+        position:absolute;
+        top:0.3in;
+        left:0.7in;
+        width:0.30in;
+        height:0.28in;
+        background-color: FireBrick;
+        border: 1px solid black;
+    }
+    .food_view_orders_order_time{
+        position:absolute;
+        top:0.2in;
+        left:0.05in;
+        font-size: 0.15in;
+    }
+    .food_view_orders_order_total_price{
+        position:absolute;
+        top:0.4in;
+        left:0.05in;
+        font-size: 0.15in;
+    }
+    .food_view_orders_order_countdown_timmer{
+        position:absolute;
+        top:0;
+        left:0.65in;
+        width:100%;
+        font-size: 0.15in;
+        color: blue;
+    }
+    .food_view_orders_order_enable_notification{
+        position:absolute;
+        top:0.4in;
+        left:0.12in;
+        width:0.18in;
+        height:0.18in;
+        border: 1px solid red;
+    }
+    .food_view_orders_order_disable_notification{
+        position:absolute;
+        top:0.4in;
+        left:0.83in;
+        width:0.18in;
+        height:0.18in;
+    }
+    .zero_items_msg{
+        position: absolute;
+        top:0.4in;
+        width:95%;
+        text-align: center;
+        font-size:0.15in;
+        color: gray;
+    }
+</style>
+
+
+<div id="ecra_total" class="ecra">
+    <div id="info_msg" onClick="this.style.display='none'">
+        <span class="closebtn" onClick="this.parentNode.style.display='none';">&times;</span>
+        Bill can't get to 1000.00€
+    </div>
+    <div id="food_first_screen" class="">
+        <div id="food_first_screen_view_orders_button" class="half_screen_button">
+            <div class="half_screen_button_text">
+                View Orders
+            </div>
+        </div>
+        <div id="food_first_screen_order_button" class="half_screen_button">
+            <div class="half_screen_button_text">
+                Order
+            </div>
+        </div>
+    </div>
+    <div id="food_view_orders" class="scrollable_hmax not_inicial_screen">
+        <!--div class="food_view_orders_order">
+            <div class="food_view_orders_order_time">
+                12:30
+            </div>
+            <div class="food_view_orders_order_total_price">
+                XXX.XX€
+            </div>
+            <div class="food_view_orders_order_view_bill_button">
+                View Bill
+            </div>
+            <img class="food_view_orders_order_direction_button" src="replacer.png">
+            <div class="food_view_orders_order_countdown_timmer">
+                XXmin
+            </div>
+            <img class="food_view_orders_order_enable_notification" src="replacer.png">
+            <img class="food_view_orders_order_disable_notification" src="replacer.png">
+        </div-->
+    </div>
+
+    <div id="food_bill_bar" class="not_inicial_screen">
+        <div id="food_bill_number">
+            0.00€
+        </div>
+        <img id="food_bill_shopping_cart" src="shopping cart amazon.png">
+    </div>
+    <div id="food_select_category" class="scrollable not_inicial_screen">
+        <li><div class="clickable_item " id="pick0" >
+            Hamburgers
+        </div></li>
+        <li><div class="clickable_item " id="pick1" >
+            Sandwiches
+        </div></li>
+        <li><div class="clickable_item " id="pick2" >
+            Pizza
+        </div></li>
+        <li><div class="clickable_item " id="pick3" >
+            Drinks
+        </div>
+        <li><div class="clickable_item " id="pick4" >
+            Ice Cream
+        </div></li>
+
+    </div>
+    <div id="options_menu" class="not_inicial_screen scrollable">
+        <div id="food_option_0" class="food_bill_cell" >
+            <div id="food_option_0_name" class="food_bill_cell_name">
+                Happy Meal
+            </div>
+            <div id="food_option_0_price" class="food_bill_cell_price">
+                XXX.XX€
+            </div>
+            <div id="food_option_0_time" class="food_bill_cell_time">
+                XXmin
+            </div>
+            <div id="food_option_0_quant" class="food_bill_cell_quant">
+                X99
+            </div>
+        </div>
+        <div id="food_option_1" class="food_bill_cell" >
+            <div id="food_option_1_name" class="food_bill_cell_name">
+                Happy Meal
+            </div>
+            <div id="food_option_1_price" class="food_bill_cell_price">
+                XXX.XX€
+            </div>
+            <div id="food_option_1_time" class="food_bill_cell_time">
+                XXmin
+            </div>
+            <div id="food_option_1_quant" class="food_bill_cell_quant">
+                X99
+            </div>
+        </div>
+        <div id="food_option_2" class="food_bill_cell" >
+            <div id="food_option_2_name" class="food_bill_cell_name">
+                Happy Meal
+            </div>
+            <div id="food_option_2_price" class="food_bill_cell_price">
+                XXX.XX€
+            </div>
+            <div id="food_option_2_time" class="food_bill_cell_time">
+                XXmin
+            </div>
+            <div id="food_option_2_quant" class="food_bill_cell_quant">
+                X99
+            </div>
+        </div>
+        <div id="food_option_3" class="food_bill_cell" >
+            <div id="food_option_3_name" class="food_bill_cell_name">
+                Happy Meal
+            </div>
+            <div id="food_option_3_price" class="food_bill_cell_price">
+                XXX.XX€
+            </div>
+            <div id="food_option_3_time" class="food_bill_cell_time">
+                XXmin
+            </div>
+            <div id="food_option_3_quant" class="food_bill_cell_quant">
+                X99
+            </div>
+        </div>
+        <div id="food_option_4" class="food_bill_cell" >
+            <div id="food_option_4_name" class="food_bill_cell_name">
+                Happy Meal
+            </div>
+            <div id="food_option_4_price" class="food_bill_cell_price">
+                XXX.XX€
+            </div>
+            <div id="food_option_4_time" class="food_bill_cell_time">
+                XXmin
+            </div>
+            <div id="food_option_4_quant" class="food_bill_cell_quant">
+                X99
+            </div>
+        </div>
+    </div>
+    <div id="food_buy" class="not_inicial_screen">
+        <img id="food_buy_img" src="replacer.png">
+        <div id="food_buy_price" >
+            XX.XX€
+        </div>
+        <div id="food_buy_time">
+            XXmin
+        </div>
+        <div id="food_buy_name">
+            Happy Meal
+        </div>
+        <img id="food_buy_add_quantity" src="plus-sign.png" >
+        <div id="food_buy_display_quantity">
+            0
+        </div>
+        <div id="okay" >
+            ok
+        </div>
+        <img id="food_buy_subtract_quantity" src="minus-sign.png" >
+        <div id="gray_background">
+        </div>
+    </div>
+    <div id="food_purchase" class="not_inicial_screen">
+        <div id="food_purchase_view_bill_button" >
+            View Bill
+        </div>
+        <div id="food_purchase_total">
+            total:XXX.XX€
+        </div>
+        <div id="food_purchase_time">
+            XXmin
+        </div>
+        <div id="food_purchase_order_button" >
+            order
+        </div>
+        <div id="food_purchase_cancel_button" >
+            cancel
+        </div>
+    </div>
+    <div id="current_bill" class="scrollable_hmax not_inicial_screen" >
+        <div class="food_bill_cell">
+            <div class="food_bill_cell_name">
+                Happy Meal
+            </div>
+            <div class="food_bill_cell_total_price">
+                XXX.XX€
+            </div>
+            <div class="food_bill_cell_time">
+                XXmin
+            </div>
+            <div class="food_bill_cell_quant">
+                X99
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    require(['jquery', 'app/globals', 'app/pageManager'], ($, g, pm) => {
+        $(document).ready(() => {
+
+            var curr_screen=document.getElementById('food_first_screen');
+
+            var categories=['Hamburgers','Sandwiches','Pizza','Drinks','Ice Cream'];
+
+            var options_img=[['Happy_Meal.png','Big_Mac.png','CBO.png'],
+                ['Simple.png','Egg.jpg','Meat_Ball.png','Chicken.png'],
+                ['Classic.png','Hawaiian.jpg','4Cheese.png','Peperoni.jpg'],
+                ['Lemonade.jpg','Water.jpg','Compal.jpg','Coca-Cola.jpg','Fanta.jpg'],
+                ['Epa.jpg','Cone.jpg','Magnum.jpg']];
+
+            var options_price=[[1.3,3.5,5.5],
+                [0.90,1.2,3.3,3.3],
+                [2,2.7,2.7,2.7,3],
+                [0.9,1.5,1.8,2.5,2.8],
+                [0.9,12.3,20.3]];
+
+            var options_name=[['Happy Meal','Big Mac','CBO',],
+                ['Simple','Egg','Meat Ball','Chicken'],
+                ['Classic','Hawaiian','4Cheese','Peperoni'],
+                ['Lemonade','Water','Compal','Coca-Cola','Fanta'],
+                ['Epá','Cone','Magnum']];
+
+            var options_time=[[2,1,2],
+                [1,2,3,1],
+                [7,10,4,10],
+                [3,1,2,1,1],
+                [5,7,5]];
+
+
+            var expected_line_time=0;//apenas usados no menu buy para nao variar tempo enquanto se adiciona quantidade
+            var time_per_quantity=0;//apenas usados no menu buy para nao variar tempo enquanto se adiciona quantidade
+
+
+            function make_purchase() {
+                g.id=(g.id+1)%10;
+                var current_date= new Date();
+                console.log(current_date.getHours()+"Hours"+current_date.getMinutes()+"Minutes"+current_date.getSeconds()+"Seconds")
+                g.order_total_price[g.id]=g.bill;
+                g.order_beginDate[g.id]=current_date;
+                g.order_minutes[g.id]=g.time;
+                console.log("time to prepare="+g.time);
+                g.order_extra_time[g.id]=Math.floor(Math.random()*10);
+                g.order_total_minutes[g.id]=g.order_minutes[g.id]+g.order_extra_time[g.id];
+                console.log("extra_time="+g.order_extra_time[g.id]);
+
+                var curr_order=g.id;
+
+                /*if((old_order=document.getElementById("food_view_orders_order_"+g.id))!=null)
+                    old_order.parentNode.removeChild(old_order);*/
+
+                //insere em primeiro a ordem acabada de criar
+                g.order_countdown_var[g.id]=setInterval(function(){function_countdown_timmer(curr_order); }, 1000);
+
+                g.time=0;
+                g.bill=0;
+                var updated_bill_number=document.getElementById("food_bill_number");
+                updated_bill_number.innerHTML="0.00€";
+                for (var i = 0; i < g.options_quantity.length; i++)
+                    for(var j =0;j<g.options_quantity[i].length;j++){
+                        g.order_quantity[g.id][i][j]=g.options_quantity[i][j];
+                        g.options_quantity[i][j]=0;
+                    }
+                g.stack=[];
+                open_food_first_screen();
+            }
+
+            function open_food_first_screen(){
+                curr_screen.style.display="none";
+                document.getElementById('food_bill_bar').style.display='none';
+                curr_screen=document.getElementById('food_first_screen');
+                curr_screen.style.display="block";
+                g.stack.push("open_food_first_screen()");
+            }
+
+            function function_countdown_timmer(order) {
+
+                console.log("Minutes:" +  g.order_minutes[order]);
+                if(g.order_minutes[order]==0) {
+                    pm.open_dialog("food-dialog.html");
+                }
+
+
+                if((-g.order_minutes[order])==g.order_extra_time[order]) {//pessoa foi levantar encomenda
+                    clearInterval(g.order_countdown_var[order]);
+                }
+
+                if(g.order_minutes[order]==-5) {//pessoa chegou tarde demais
+                    clearInterval(g.order_countdown_var[order]);
+                }
+
+                var aux_div;
+                var time_aux;
+                g.order_minutes[order]--;
+                g.order_countdown_estado[order] = g.order_minutes[order] + "min";
+                if((-g.order_minutes[order])==g.order_extra_time[order]){//pessoa foi levantar encomenda
+                    // console.log("minutes=extra_time!!");
+                    time_aux=g.order_beginDate[order].getMinutes()+g.order_total_minutes[order];
+                    g.order_countdown_estado[order] = ((g.order_beginDate[order].getHours()+Math.floor(time_aux/60))%24)+':'+numberpad2(time_aux%60);
+
+                }
+                else if(g.order_minutes[order]==-5){//pessoa chegou tarde demais
+                    // console.log("minutes=-5!!");
+                    g.order_countdown_estado[order] ="EXPIRED";
+                }
+            }
+            //usado no countdown e no purchase
+            function numberpad2(number){
+                if(number<10)
+                    return'0'+number;
+                return number;
+            }
+
+            function open_food_select_category(){
+                curr_screen.style.display="none";
+                curr_screen=document.getElementById('food_select_category');
+                curr_screen.style.display="block";
+                curr_screen.scrollTop=0;
+                document.getElementById("food_bill_bar").style.display="block";
+                document.getElementById("food_bill_number").innerHTML=parseFloat(g.bill).toFixed(2)+'€';
+                g.stack.push('open_food_select_category()');
+            }
+
+            function open_food_view_orders(){
+                var div_cell;
+                var contador=0;
+                var new_order=document.createElement('div');
+                var order_time=document.createElement('div');
+                var price=document.createElement('div');
+                var view_bill_button=document.createElement('div');
+                var direction_button=document.createElement('img');
+                var countdown_timmer=document.createElement('div');
+                var enable_notification=document.createElement('img');
+                var disable_notification=document.createElement('img');
+                var PastBill;
+                var countdown;
+                var new_food_view_orders = document.getElementById('food_view_orders');
+
+                if (new_food_view_orders !== null) {
+                    new_food_view_orders.parentNode.removeChild(new_food_view_orders);
+                }
+
+                new_food_view_orders = document.createElement('div');
+                new_food_view_orders.id = 'food_view_orders';
+
+                console.log("Hello!");
+                for (var order =0;order< g.order_quantity.length; order++) {
+                    if (g.order_quantity[order][0][0] != undefined) {
+                        contador++;
+                    }
+                }
+                if(contador==0){
+                    div_cell=document.createElement('div');
+                    console.log('no orders made');
+                    div_cell.innerHTML='no orders made';
+                    div_cell.id="no_orders_made";
+                    div_cell.className='zero_items_msg';
+                    new_food_view_orders.appendChild(div_cell);
+                }
+                else{
+                    order = g.id;
+                    do{
+                        console.log(g.order_beginDate);
+                        console.log("Order: " + order);
+                        console.log(g.order_beginDate[order]);
+
+                        new_order=document.createElement('div');
+                        order_time=document.createElement('div');
+                        price=document.createElement('div');
+                        view_bill_button=document.createElement('div');
+                        direction_button=document.createElement('img');
+                        countdown_timmer=document.createElement('div');
+                        enable_notification=document.createElement('img');
+                        disable_notification=document.createElement('img');
+                        new_order.id="food_view_orders_order_"+order;
+                        new_order.className="food_view_orders_order";
+                        order_time.innerHTML=g.order_beginDate[order].getHours()+":"+numberpad2(g.order_beginDate[order].getMinutes());
+                        order_time.className="food_view_orders_order_time";
+                        new_order.appendChild(order_time);
+                        price.innerHTML=parseFloat(g.bill).toFixed(2)+"€";
+                        price.className="food_view_orders_order_total_price";
+                        new_order.appendChild(price);
+                        view_bill_button.innerHTML="View Bill";
+                        view_bill_button.className="food_view_orders_order_view_bill_button";
+                        PastBill="showPastBill("+order+")";
+                        view_bill_button.onclick=function(){eval(PastBill)};
+                        new_order.appendChild(view_bill_button);
+                        direction_button.src="img/food-paddle.png";
+                        direction_button.className="food_view_orders_order_direction_button";
+                        new_order.appendChild(direction_button);
+                        //countdown_timmer.innerHTML=g.order_countdown_estado[order];
+                        countdown_timmer.innerHTML= Math.ceil((Math.random()+1) * 5) + "min";
+                        countdown_timmer.id="food_view_orders_order_countdown_timmer_"+order;
+                        countdown_timmer.className="food_view_orders_order_countdown_timmer";
+                        new_order.appendChild(countdown_timmer);
+                        //enable e disable notification retirados
+                        new_food_view_orders.appendChild(new_order);
+                        order=((order-1)%10);
+                        contador--;
+                        console.log(contador);
+                    }while(contador != 0);
+                }
+                document.getElementById('ecra_total').appendChild(new_food_view_orders);
+                curr_screen.style.display="none";
+                curr_screen=document.getElementById('food_view_orders');
+                curr_screen.style.display='block';
+                g.stack.push('open_food_view_orders()');
+
+
+            }
+            function save_buy(){
+                back();
+            }
+
+            function pick(option){
+                // console.log(option);
+                // console.log(options_img[option]);
+                var length=options_img[option].length;
+                var MAXlength=5;
+                var i;
+                curr_screen.style.display= "none";
+                for (i = 0; i < length ; i++) {
+                    document.getElementById('food_option_'+i).style.display= "block";;
+                    document.getElementById('food_option_'+i+'_quant').innerHTML=
+                        'x'+g.options_quantity[option][i];
+                    document.getElementById('food_option_'+i+'_price').innerHTML=
+                        parseFloat(options_price[option][i]).toFixed(2)+'€';
+                    document.getElementById('food_option_'+i+'_name').innerHTML=
+                        options_name[option][i];
+                    document.getElementById('food_option_'+i+'_time').innerHTML=
+                        Math.round(options_time[option][i]*(Math.random()*0.2+0.4)*(1+g.options_quantity[option][i]))+'min';
+                }
+                for (; i < MAXlength ; i++) {
+                    curr_screen=document.getElementById('food_option_'+i);
+                    curr_screen.style.display= "none";
+
+                }
+                curr_screen=document.getElementById('options_menu');
+                curr_screen.style.display= "block";
+                document.getElementById("food_bill_number").innerHTML=parseFloat(g.bill).toFixed(2)+'€';
+                g.curr_section[0]=option;
+                document.getElementById('options_menu').scrollTop=0;
+                document.getElementById("food_bill_bar").style.display="block";
+                g.stack.push('pick('+option+')');
+            }
+
+            function buy2(option1,option2){
+                g.curr_section[0]=option1;
+                buy(option2);
+            }
+
+
+            function buy(option){
+                curr_screen.style.display= "none";
+                g.curr_section[1]=option;
+                expected_line_time=options_time[g.curr_section[0]][g.curr_section[1]]*(Math.random()*0.2+0.4);
+                time_per_quantity=
+                    (Math.random()*0.2+0.4)*options_time[g.curr_section[0]][g.curr_section[1]];
+                document.getElementById('food_buy_img').src=options_img[g.curr_section[0]][g.curr_section[1]];
+                document.getElementById('food_buy_price').innerHTML=
+                    parseFloat(options_price[g.curr_section[0]][g.curr_section[1]]).toFixed(2)+'€';
+                document.getElementById('food_buy_name').innerHTML=
+                    options_name[g.curr_section[0]][g.curr_section[1]];
+                document.getElementById('food_buy_display_quantity').innerHTML=
+                    g.options_quantity[g.curr_section[0]][g.curr_section[1]];
+                document.getElementById('food_buy_time').innerHTML=
+                    Math.round(expected_line_time+time_per_quantity*g.options_quantity[g.curr_section[0]][g.curr_section[1]])+'min';
+                curr_screen=document.getElementById('food_buy');
+                curr_screen.style.display= "block";
+                document.getElementById("food_bill_bar").style.display="block";
+                document.getElementById("food_bill_number").innerHTML=parseFloat(g.bill).toFixed(2)+'€';
+                g.stack.push('buy2('+g.curr_section[0]+','+g.curr_section[1]+')');
+            }
+
+            function add_quantity(){
+                if(g.options_quantity[g.curr_section[0]][g.curr_section[1]]<99){
+                    if(g.bill+(+(options_price[g.curr_section[0]][g.curr_section[1]]).toFixed(2))>=1000){
+                        // console.log('bill is over 1000.00€');
+                        // console.log('bill is'+g.bill);
+                        // console.log('price is'+(options_price[g.curr_section[0]][g.curr_section[1]]).toFixed(2));
+                        // console.log('the sum is'+(g.bill+(+(options_price[g.curr_section[0]][g.curr_section[1]]).toFixed(2))));
+                        document.getElementById("info_msg").innerHTNL="Bill can't get to 1000.00€";
+                        document.getElementById("info_msg").style.display='block';
+                        return;
+                    }
+                    document.getElementById('food_buy_display_quantity').innerHTML=
+                        ++g.options_quantity[g.curr_section[0]][g.curr_section[1]];
+                    g.bill+= +(options_price[g.curr_section[0]][g.curr_section[1]]).toFixed(2);
+                    document.getElementById('food_bill_number').innerHTML=parseFloat(g.bill).toFixed(2)+'€';
+                    document.getElementById('food_buy_time').innerHTML=
+                        Math.round(expected_line_time+time_per_quantity*g.options_quantity[g.curr_section[0]][g.curr_section[1]])+'min';
+
+                }
+
+            }
+            function subtract_quantity(){
+                if(g.options_quantity[g.curr_section[0]][g.curr_section[1]]>0){
+                    document.getElementById("info_msg").style.display='none';
+                    document.getElementById('food_buy_display_quantity').innerHTML=
+                        --g.options_quantity[g.curr_section[0]][g.curr_section[1]];
+                    g.bill= +(Math.abs(g.bill-options_price[g.curr_section[0]][g.curr_section[1]])).toFixed(2);
+                    document.getElementById('food_bill_number').innerHTML=
+                        parseFloat(g.bill).toFixed(2)+'€';
+                    document.getElementById('food_buy_time').innerHTML=
+                        Math.round(expected_line_time+time_per_quantity*g.options_quantity[g.curr_section[0]][g.curr_section[1]])+'min';
+                }
+            }
+
+
+            function open_purchase(){
+                curr_screen.style.display="none";
+                var aux;
+                for (var i =  0; i < g.options_quantity.length; i++) {
+                    for (var j =  0; j < g.options_quantity[i].length; j++) {
+                        if(g.options_quantity[i][j]>0 &&
+                            ((aux=Math.round(options_time[i][j]*(Math.random()*0.2+0.4)*(1+g.options_quantity[i][j])))>g.time)){
+                            g.time=aux;
+                        }
+                    }
+                }
+                document.getElementById("food_purchase_total").innerHTML=
+                    'total:'+parseFloat(g.bill).toFixed(2)+'€';
+                document.getElementById("food_purchase_time").innerHTML=g.time+'min';
+                if(g.bill==0){
+                    document.getElementById('food_purchase_order_button').style.backgroundColor='lightgray';
+                    document.getElementById('food_purchase_order_button').onclick=function(){};
+                }
+                else{
+                    document.getElementById('food_purchase_order_button').style.backgroundColor='FireBrick';
+                    document.getElementById('food_purchase_order_button').
+                        onclick=make_purchase_wrapper;
+                }
+                document.getElementById("food_bill_bar").style.display="none";
+                curr_screen=document.getElementById("food_purchase");
+                curr_screen.style.display="block";
+                g.stack.push("open_purchase()");
+            }
+
+            function showBill(){
+                var div_cell;
+                var div_name;
+                var div_quant;
+                var div_time;
+                var div_total_price;
+                var save_i;
+                var save_j;
+                var current_bill = document.getElementById("current_bill");
+                current_bill.parentNode.removeChild(current_bill);
+                current_bill=document.createElement('div');
+                current_bill.id='current_bill';
+                current_bill.className='scrollable_hmax';
+                document.getElementById('ecra_total').appendChild(current_bill);
+                current_bill.scrollTop=0;
+                if(g.bill==0){
+                    div_cell=document.createElement('div');
+                    // console.log('no items to show');
+                    div_cell.innerHTML='no items added';
+                    div_cell.className='zero_items_msg';
+                    current_bill.appendChild(div_cell);
+                }
+                var contador;
+                for (var i =  0; i < g.options_quantity.length; i++) {
+                    contador=0;
+                    for (var j = 0; j < g.options_quantity[i].length; j++){
+                        if(g.options_quantity[i][j]!=0){
+                            contador++;
+                        }
+                    }
+                    if (contador==0){
+                        continue;
+                    }
+                    div_cell=document.createElement('div');
+                    div_cell.innerHTML=categories[i]+':';
+                    div_cell.style.fontSize='0.17in';
+                    div_cell.setAttribute("onClick", "pick("+i+");" );
+                    current_bill.appendChild(div_cell);
+                    for (var j = 0; j < g.options_quantity[i].length; j++) {
+                        if(g.options_quantity[i][j]!=0){
+                            div_cell=document.createElement('div');
+                            div_name=document.createElement('div');
+                            div_quant=document.createElement('div');
+                            div_time=document.createElement('div');
+                            div_total_price=document.createElement('div');
+                            div_cell.className='food_bill_cell';
+                            div_cell.setAttribute("onClick", "buy2("+i+","+j+");" );
+                            div_name.className='food_bill_cell_name';
+                            div_name.innerHTML=options_name[i][j];
+                            div_quant.className='food_bill_cell_quant';
+                            div_quant.innerHTML='x'+g.options_quantity[i][j];
+                            div_time.className='food_bill_cell_time';
+                            div_time.innerHTML=
+                                Math.round(options_time[i][j]*(Math.random()*0.2+0.4)*
+                                    (1+g.options_quantity[i][j]))+'min';
+                            div_total_price.className='food_bill_cell_total_price';
+                            div_total_price.innerHTML=
+                                parseFloat(options_price[i][j]*g.options_quantity[i][j]).toFixed(2)+'€';
+                            div_cell.appendChild(div_name);
+                            div_cell.appendChild(div_quant);
+                            div_cell.appendChild(div_time);
+                            div_cell.appendChild(div_total_price);
+                            current_bill.appendChild(div_cell);
+                        }
+                    }
+                }
+                curr_screen.style.display="none";
+                curr_screen=current_bill;
+                document.getElementById('food_bill_bar').style.display='none';
+                g.stack.push("showBill()");
+            }
+
+
+
+            function showPastBill(order){
+                var div_cell;
+                var div_name;
+                var div_quant;
+                var div_total_price;
+                var current_bill = document.getElementById("current_bill");
+                current_bill.parentNode.removeChild(current_bill);
+                current_bill=document.createElement('div');
+                current_bill.id='current_bill';
+                current_bill.className='scrollable_hmax';
+                document.getElementById('ecra_total').appendChild(current_bill);
+                current_bill.scrollTop=0;
+                var contador;
+                for (var i =  0; i <  g.order_quantity[order].length; i++) {
+                    contador=0;
+                    for (var j = 0; j < g.order_quantity[order][i].length; j++){
+                        if(g.order_quantity[order][i][j]!=0){
+                            contador++;
+                        }
+                    }
+                    if (contador==0){
+                        continue;
+                    }
+                    div_cell=document.createElement('div');
+                    div_cell.innerHTML=categories[i]+':';
+                    div_cell.style.fontSize='0.17in';
+                    current_bill.appendChild(div_cell);
+                    for (var j = 0; j < g.order_quantity[order][i].length; j++) {
+                        if(g.order_quantity[order][i][j]!=0){
+                            div_cell=document.createElement('div');
+                            div_name=document.createElement('div');
+                            div_quant=document.createElement('div');
+                            div_total_price=document.createElement('div');
+                            div_cell.className='food_bill_cell';
+                            div_name.className='food_bill_cell_name';
+                            div_name.innerHTML=options_name[i][j];
+                            div_quant.className='food_bill_cell_quant';
+                            div_quant.innerHTML='x'+g.order_quantity[order][i][j];
+                            div_total_price.className='food_bill_cell_total_price';
+                            div_total_price.innerHTML=
+                                parseFloat(options_price[i][j]*g.order_quantity[order][i][j])
+                                    .toFixed(2)+'€';
+                            div_cell.appendChild(div_name);
+                            div_cell.appendChild(div_quant);
+                            div_cell.appendChild(div_total_price);
+                            current_bill.appendChild(div_cell);
+                        }
+                    }
+                }
+                curr_screen.style.display="none";
+                curr_screen=current_bill;
+                g.stack.push("showPastBill("+order+")");
+            }
+
+            function showWorks(){
+                curr_screen.style.display="none";
+            }
+
+            //////////// XXXXXXXXXXXX
+
+
+            //stack.pop()   stack.push()
+            function back(){
+                console.log("Backing... " + g.stack);
+                var estado_atual=g.stack.pop();
+                if(g.stack.length==0){
+                    console.log("Stack is empty");
+                    pm.back();
+                    unregister_buttons();
+                }
+                let hop_state = g.stack.pop();
+                console.log("Changing to " + hop_state);
+                eval(hop_state);//trocar para estado anterior
+            }
+            function return_to_food(){
+                console.log("Return to food");
+                console.log(g.stack);
+                eval(g.stack.pop());
+            }
+
+            $("#food_first_screen_view_orders_button").click(open_food_view_orders);
+            $("#food_first_screen_order_button").click(open_food_select_category);
+            $("#food_bill_bar").click(open_purchase);
+
+            $("#pick0").click(() => {pick(0)});
+            $("#pick1").click(() => {pick(1)});
+            $("#pick2").click(() => {pick(2)});
+            $("#pick3").click(() => {pick(3)});
+            $("#pick4").click(() => {pick(4)});
+
+            $("#food_option_0").click(() => {buy(0)});
+            $("#food_option_1").click(() => {buy(1)});
+            $("#food_option_2").click(() => {buy(2)});
+            $("#food_option_3").click(() => {buy(3)});
+            $("#food_option_4").click(() => {buy(4)});
+
+            $("#food_buy_add_quantity").click(add_quantity);
+            $("#okay").click(save_buy);
+            $("#food_buy_subtract_quantity").click(subtract_quantity);
+            $("#food_purchase_view_bill_button").click(showBill);
+            //$("#food_purchase_order_button").click(make_purchase);
+            $("#food_purchase_cancel_button").click(open_food_select_category);
+            g.confirm_fn = make_purchase;
+
+            function unregister_buttons() {
+                console.log("Unregistering");
+                $("#back-btn").unbind().click(() => {
+                    if (!pm.locked())
+                        pm.back();
+                });
+            }
+
+            function register_buttons() {
+                console.log("Registering");
+                $("#back-btn").unbind().click(() => {
+                    if (!pm.locked())
+                        back();
+                });
+            }
+
+            $(".food_view_orders_order_direction_button").click(() => {
+                pm.change_page("map.html");
+                unregister_buttons();
+            });
+
+            function make_purchase_wrapper() {
+                pm.open_dialog("confirmation-dialog.html");
+            }
+
+            register_buttons();
+
+            return_to_food();
+        });
+
+    });
+</script>
+
+
+
+
+

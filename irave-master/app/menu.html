@@ -1,0 +1,50 @@
+<script src="js/lib/require.js"></script>
+
+<style>
+    .slick-dots {
+        top: 1.8cm;
+        bottom: 0;
+    }
+
+    .slick-dotted.slick-slider {
+        margin: 0;
+    }
+
+    .carousel img {
+        max-width: 100%;
+        margin: 0 auto;
+        height: 60pt;
+    }
+
+</style>
+
+<div class="d-flex align-items-center carousel mt-1">
+    <div> <img src="img/WC.png" id="bathrooms"/> </div>
+    <div> <img src="img/findFriend.jpg" id="friends"></div>
+    <div> <img src="img/food.png" id="shop"/>  </div>
+</div>
+
+<script>
+
+    require(['jquery', 'slick', 'app/pageManager', 'app/wc'], function($, _, pm) {
+
+        $(document).ready(function (){
+            $(".carousel").slick({
+                dots: true
+            });
+
+            $("#friends").click(function () {
+                pm.change_page("friends.html");
+            });
+
+            $("#shop").click(function () {
+                pm.change_page("EncomendaComida.html");
+            });
+
+            $("#bathrooms").click(function () {
+                pm.change_page("wc.html");
+            });
+        });
+    });
+</script>
+

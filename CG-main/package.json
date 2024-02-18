@@ -1,0 +1,10 @@
+{
+  "name": "cg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Computação Gráfica 2021/2022",
+  "devDependencies": {
+    "@types/three": "^0.140.0",
+    "prettier": "^2.6.2"
+  }
+}

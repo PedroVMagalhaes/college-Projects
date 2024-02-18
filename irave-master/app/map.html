@@ -1,0 +1,43 @@
+<script src="js/lib/require.js"></script>
+
+<div class="d-flex align-items-center flex-column" id="direction">
+    <div class="p-0 mt-2">
+        <img src="img/bigarrow.png" height="65pt" width="65pt" id="dir">
+    </div>
+    <div class="p-0">
+        <span id="dist"></span>
+    </div>
+</div>
+
+<script>
+
+    require(['jquery', 'jQueryRotate', 'app/finder'], function ($, jr, finder) {
+        $(document).ready(function () {
+            let prev = 0;
+
+            $("#dist").html(finder.distance().toFixed(0) + " M");
+
+            $("#dir").rotate({
+                angle: prev,
+                animateTo: finder.angle(),
+                easing: function (x, t, b, c, d) {        // t: current time, b: begInnIng value, c: change In value, d: duration
+                    return c * (t / d) + b;
+                }
+            });
+
+            prev = finder.angle();
+            finder.move_callback = function () {
+                $("#dist").html(finder.distance().toFixed(0) + " M");
+                $("#dir").rotate({
+                    angle: prev,
+                    animateTo: finder.angle(),
+                    easing: function (x, t, b, c, d) {        // t: current time, b: begInnIng value, c: change In value, d: duration
+                        return c * (t / d) + b;
+                    }});
+                prev = finder.angle();
+            }
+
+
+        })});
+</script>
+

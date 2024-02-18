@@ -1,0 +1,40 @@
+<script src="js/lib/require.js"></script>
+
+<div id="friends">
+</div>
+
+<script>
+    require(['jquery', 'app/friends', 'app/pageManager'], function($, f, pm) {
+
+        $(document).ready(() => {
+            let friends = f.friends.sort((a, b) => a.name > b.name);
+
+            let acc = "";
+
+            for (let i = 0; i < friends.length; i++) {
+                acc += `
+            <div class="d-flex justify-content-between flex-row" id="" style="font-size: 11pt; border: 1px black solid">
+                <div class="p-1 view" data-name="${friends[i].name}">
+                    ${friends[i].name}
+                </div>
+                <span class="p-1 fa fa-map-marker-alt localize" style="font-size: 12pt; margin-top: 2pt" data-name="${friends[i].name}"></span>
+            </div>`;
+            }
+
+            $("#friends").html(acc);
+
+            $(".view").click(function() {
+                let n = $(this).data("name");
+                f.friend_to_show = n;
+                pm.change_page("friend_view.html");
+            });
+
+            $(".localize").click(function () {
+                let n = $(this).data("name");
+                f.friend_to_show = n;
+                pm.change_page("map.html");
+            });
+
+        })});
+
+</script>

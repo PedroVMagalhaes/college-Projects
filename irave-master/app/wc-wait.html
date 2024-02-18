@@ -1,0 +1,78 @@
+<script src="js/lib/require.js"></script>
+
+<link rel="stylesheet" href="css/flipclock.css">
+
+<style>
+    .my-clock {
+        zoom: 0.25;
+    }
+
+    .flip-clock-divider .flip-clock-label {
+        display: none
+    }
+</style>
+
+<div class="d-flex align-items-center justify-content-center flex-column">
+    <div class="p-1">
+        <span class="fas fa-hourglass-half"></span>
+    </div>
+    <div style="text-align: center">
+        <div class="p-0 my-clock"></div>
+    </div>
+    <div class="d-flex justify-content-around">
+        <div class="p-1 ml-1" id="localize">
+            <span class="fa fa-map-marker-alt"></span>
+        </div>
+        <div class="p-1 ml-3" id="toggleAlarm">
+            <span id="bell" class="fa"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(['jquery', 'flipclock', 'app/wc', 'app/pageManager', 'app/finder'], function($, fc, wc, pm, f) {
+
+        function init() {
+
+            let wait_time = 0;
+
+            if (wc.isWaiting()) {
+                wait_time = ((wc.deadline - new Date()) / 1000) + 1;
+            }
+
+            let clock = new FlipClock($('.my-clock'), wait_time, {
+                clockFace: 'MinuteCounter',
+                countdown: true,
+            });
+
+            function toggleAlarmIcon() {
+                if (wc.trigger) {
+                    $("#bell").addClass("fa-bell").removeClass("fa-bell-slash");
+                } else  {
+                    $("#bell").addClass("fa-bell-slash").removeClass("fa-bell");
+                }
+            }
+
+            toggleAlarmIcon();
+
+            $("#toggleAlarm").click(() => {
+                wc.trigger = !wc.trigger;
+                toggleAlarmIcon();
+            });
+
+            $("#localize").click(() => {
+                f.tgt.x = -10;
+                f.tgt.y = 5;
+                pm.change_page("map.html")
+            })
+        }
+
+        if (wc.display_help) {
+            wc.display_help = false;
+            // Only initiates processing when dialog is closed
+            pm.open_dialog("wc-help.html", init);
+        } else {
+            init();
+        }
+    });
+</script>

@@ -1,0 +1,45 @@
+.dbg-1 {
+    /* border: solid 1px black;*/
+}
+
+.dbg-2 {
+    border: solid 1px #721c24;
+}
+
+.dbg-3 {
+     border: solid 1px dodgerblue;
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+
+.huge {
+    font-size: 16pt;
+}
+
+.big {
+    font-size: 14pt;
+}
+
+.small-b {
+    font-size: 11pt;
+}
+
+.small-m {
+    font-size: 10pt;
+}
+
+.small-s {
+    font-size: 9pt;
+}
+
+.border {
+    border: black 2px solid;
+    border-radius: 10px;
+}
+
+.active {
+    border-color: forestgreen !important;
+}
