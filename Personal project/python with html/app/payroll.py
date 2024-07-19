@@ -22,8 +22,12 @@ def money(number, n_people):
 
     # Read the existing value in A1 and B1
     existing_value = worksheet['A1'].value
+    if existing_value is None:
+        existing_value = 1
     old_week = worksheet['B1'].value
 
+    if old_week is None:
+        old_week = 1
     # Increment the value and week
     new_value = existing_value + 3
     week = old_week + 1
